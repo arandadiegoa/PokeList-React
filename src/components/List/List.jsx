@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { PokeContext } from "../../state/context";
+import { useContext, useEffect } from 'react';
+import { PokeContext } from '../../state/context';
 
 const List = () => {
   const { getPokemons, pokeList } = useContext(PokeContext);
@@ -8,9 +8,7 @@ const List = () => {
     getPokemons();
   }, []);
 
-  console.log("List", pokeList);
-
-  return <></>;
+  return <div>{JSON.stringify(pokeList)}</div>;
 };
 
 export default List;
