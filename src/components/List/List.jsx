@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { PokeContext } from "../../state/context";
 
 const List = () => {
-  const { getPokemons, pokeList, errorList, loadingList } =
+  const { getPokemons, pokeList, errorList, loadingList, nextPage } =
     useContext(PokeContext);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ const List = () => {
             {poke.name}-{poke.url}
           </div>
         ))}
+      {nextPage && <button onClick={() => getPokemons(nextPage)}>Next</button>}
     </div>
   );
 };

@@ -6,8 +6,7 @@ export const pokeReducer = (state, action) => {
     case types.FETCH_LOADING:
       return {
         ...state,
-        //loadingList: action.payload.loadingList,
-        loadingList: true,
+        loadingList: action.payload.loadingList,
       };
     case types.FETCH_SUCCESS:
       return {
@@ -15,6 +14,7 @@ export const pokeReducer = (state, action) => {
         loadingList: false,
         pokeList: action.payload.pokeList,
         errorList: action.payload.errorList,
+        nextPage: action.payload.nextPage,
       };
     case types.FETCH_FAILED:
       return {
