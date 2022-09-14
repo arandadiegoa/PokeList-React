@@ -1,9 +1,8 @@
-import { useContext, useEffect } from "react";
-import { PokeContext } from "../../state/context";
+import { useContext, useEffect } from 'react';
+import { PokeContext } from '../../state/context';
 
 const List = () => {
-  const { getPokemons, pokeList, errorList, loadingList } =
-    useContext(PokeContext);
+  const { getPokemons, pokeList, errorList, loadingList } = useContext(PokeContext);
 
   useEffect(() => {
     getPokemons();
