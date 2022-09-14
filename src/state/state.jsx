@@ -14,25 +14,27 @@ export const PokeState = ({ children }) => {
 
   const [state, dispatch] = useReducer(pokeReducer, initialState);
 
-  const getPokemons = async (url) => {
-    const res = await fetchPokemon(url);
-    console.log(res);
-    //TODO: revisar loading
+  const getPokemons = async () => {
     dispatch({ type: types.FETCH_LOADING, payload: { loadingList: true } });
 
-    if (!res.results?.length) {
-      dispatch({ type: types.FETCH_FAILED, payload: { errorList: true } });
-    }
-    //Si hay data, dispachamos el fetch success
-    dispatch({
-      type: types.FETCH_SUCCESS,
-      payload: {
-        pokeList: res.results,
-        errorList: false,
-        loading: false,
-        nextPage: res.next,
-      },
-    });
+    const { error, data } = await fetchPokemon();
+
+    if (!error)
+      dispatch({
+        type: types.FETCH_SUCCESS,
+        payload: {
+          pokeList: data.results,
+          errorList: false,
+          loadingList: false,
+          nextPage: true,
+        },
+      });
+
+    if (error)
+      dispatch({
+        type: types.FETCH_FAILED,
+        payload: { errorList: true, loadingList: false },
+      });
   };
 
   return (

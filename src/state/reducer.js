@@ -1,7 +1,6 @@
-import { types } from "./actions";
+import { types } from './actions';
 
 export const pokeReducer = (state, action) => {
-  console.log("Reducer", action);
   switch (action.type) {
     case types.FETCH_LOADING:
       return {
@@ -11,7 +10,7 @@ export const pokeReducer = (state, action) => {
     case types.FETCH_SUCCESS:
       return {
         ...state,
-        loadingList: false,
+        loadingList: action.payload.loadingList,
         pokeList: action.payload.pokeList,
         errorList: action.payload.errorList,
         nextPage: action.payload.nextPage,
@@ -20,7 +19,8 @@ export const pokeReducer = (state, action) => {
       return {
         ...state,
         errorList: action.payload.errorList,
-        loadingList: false,
+        loadingList: action.payload.loadingList,
+        pokeList: [],
       };
     default:
       return state;
