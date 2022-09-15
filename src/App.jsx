@@ -6,7 +6,7 @@ function App() {
     <div>
       APP
       <List />
-     {/*  <Paginator /> */}
+      <Paginator />
     </div>
   );
 }

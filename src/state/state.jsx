@@ -9,12 +9,13 @@ export const PokeState = ({ children }) => {
     pokeList: [],
     loadingList: false,
     errorList: false,
-    nextPage: false,
+    nextPage: "",
+    previousPage: "",
   };
 
   const [state, dispatch] = useReducer(pokeReducer, initialState);
 
-  const getPokemons = async () => {
+  const getPokemons = async (url) => {
     dispatch({ type: types.FETCH_LOADING, payload: { loadingList: true } });
 
     const { error, data } = await fetchPokemon();
@@ -26,7 +27,8 @@ export const PokeState = ({ children }) => {
           pokeList: data.results,
           errorList: false,
           loadingList: false,
-          nextPage: true,
+          nextPage: data.next,
+          previousPage: data.previous,
         },
       });
 
@@ -41,6 +43,7 @@ export const PokeState = ({ children }) => {
     <PokeContext.Provider
       value={{
         nextPage: state.nextPage,
+        previousPage: state.previousPage,
         pokeList: state.pokeList,
         loadingList: state.loadingList,
         errorList: state.errorList,
