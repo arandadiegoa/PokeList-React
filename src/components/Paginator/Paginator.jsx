@@ -1,16 +1,16 @@
 import { useContext } from "react";
 import { PokeContext } from "../../state/context";
 
+
 export const Paginator = () => {
-  const { nextPage, previousPage, getPokemons, pokeList } =
-    useContext(PokeContext);
-  console.log("Paginator", nextPage);
+  const { nextPage, previousPage, getPokemons } = useContext(PokeContext);
+
   return (
     <div>
       {previousPage && (
-        <button onClick={() => getPokemons(previousPage)}>Previous</button>
+        <Button onClick={() => getPokemons(previousPage)}>Previous</Button>
       )}
-      {nextPage && <button onClick={() => getPokemons(nextPage)}>Next</button>}
+      {nextPage && <Button onClick={() => getPokemons(nextPage)}>Next</Button>}
     </div>
   );
 };

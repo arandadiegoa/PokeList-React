@@ -15,10 +15,12 @@ export const PokeState = ({ children }) => {
 
   const [state, dispatch] = useReducer(pokeReducer, initialState);
 
+  //llamando a la API, y le paso como parametro la nueva url
   const getPokemons = async (url) => {
     dispatch({ type: types.FETCH_LOADING, payload: { loadingList: true } });
 
-    const { error, data } = await fetchPokemon();
+    //Hago el destructuring, de lo que necesito, data y error. Y tengo que pasarle a fetch, la nueva url
+    const { error, data } = await fetchPokemon(url);
 
     if (!error)
       dispatch({
