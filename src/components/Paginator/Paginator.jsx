@@ -1,16 +1,27 @@
-import { useContext } from "react";
-import { PokeContext } from "../../state/context";
+import { useContext } from 'react';
+import { PokeContext } from '../../state/context';
 
 export const Paginator = () => {
-  const { nextPage, previousPage, getPokemons, pokeList } =
-    useContext(PokeContext);
-  console.log("Paginator", nextPage);
+  const { nextPage, previousPage, getPokemons, pokeList } = useContext(PokeContext);
+
   return (
     <div>
       {previousPage && (
-        <button onClick={() => getPokemons(previousPage)}>Previous</button>
+        <button
+          onClick={() =>
+            getPokemons(previousPage /* esto es una url que pasa como arg */)
+          }
+        >
+          Previous
+        </button>
       )}
-      {nextPage && <button onClick={() => getPokemons(nextPage)}>Next</button>}
+      {nextPage && (
+        <button
+          onClick={() => getPokemons(nextPage /* esto es una url que pasa como arg */)}
+        >
+          Next
+        </button>
+      )}
     </div>
   );
 };
