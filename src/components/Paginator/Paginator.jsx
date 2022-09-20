@@ -7,10 +7,18 @@ export const Paginator = () => {
 
   return (
     <div>
-      {previousPage && 
+      {previousPage && (
         <Button onClick={() => getPokemons(previousPage)}>Previous</Button>
-      }
-      {nextPage && <Button onClick={() => getPokemons(nextPage)}>Next</Button>}
+      )}
+      {nextPage && (
+        <Button
+          onClick={
+            () => getPokemons(nextPage) /* esto es una url que pasa como arg */
+          }
+        >
+          Next
+        </Button>
+      )}
     </div>
   );
 };

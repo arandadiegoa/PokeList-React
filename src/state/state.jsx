@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { fetchPokemon } from "../services/pokemons.svc";
+import { fetchPokemons } from "../services/pokemons.svc";
 import { types } from "./actions";
 import { PokeContext } from "./context";
 import { pokeReducer } from "./reducer";
@@ -17,10 +17,12 @@ export const PokeState = ({ children }) => {
 
   //llamando a la API, y le paso como parametro la nueva url
   const getPokemons = async (url) => {
+    //poner el loding en true antes de que haga la llamada al await,
+    //recién cuando se cumpla la promesa, loading va a ser false.
     dispatch({ type: types.FETCH_LOADING, payload: { loadingList: true } });
 
     //Hago el destructuring, de lo que necesito, data y error. Y tengo que pasarle a fetch, la nueva url
-    const { error, data } = await fetchPokemon(url);
+    const { error, data } = await fetchPokemons(url);
 
     if (!error)
       dispatch({
