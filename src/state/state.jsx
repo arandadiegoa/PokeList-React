@@ -41,7 +41,6 @@ export const PokeState = ({ children }) => {
       });
   };
 
-
   return (
     <PokeContext.Provider
       value={{

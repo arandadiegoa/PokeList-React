@@ -1,13 +1,22 @@
-import List from "./components/List/List";
-import { Paginator } from "./components/Paginator/Paginator";
+import { Home } from "./components/Home/Home";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      APP
-      <List />
-      <Paginator />
-    </div>
+    <Router>
+      <div>
+        <Link to="/">Home</Link>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
