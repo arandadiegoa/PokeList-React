@@ -4,6 +4,19 @@ import { types } from "./actions";
 import { PokeContext } from "./context";
 import { pokeReducer } from "./reducer";
 
+const setPokemons = (data) => {
+  return {
+    type: types.FETCH_SUCCESS,
+    payload: {
+      pokeList: data.results,
+      errorList: false,
+      loadingList: false,
+      nextPage: data.next,
+      previousPage: data.previous,
+    },
+  }
+}
+
 export const PokeState = ({ children }) => {
   const initialState = {
     pokeList: [],
@@ -25,16 +38,7 @@ export const PokeState = ({ children }) => {
     const { error, data } = await fetchPokemons(url);
 
     if (!error)
-      dispatch({
-        type: types.FETCH_SUCCESS,
-        payload: {
-          pokeList: data.results,
-          errorList: false,
-          loadingList: false,
-          nextPage: data.next,
-          previousPage: data.previous,
-        },
-      });
+      dispatch(setPokemons(data));
 
     if (error)
       dispatch({

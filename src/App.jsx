@@ -1,22 +1,16 @@
+import { Header } from "./components/Header/Header";
 import { Home } from "./components/Home/Home";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  NavLink,
-} from "react-router-dom";
+import { Body } from "./Styles/Styles.styled";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Link to="/">Home</Link>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <Body>
+        <Header />
+
+        <Home />
+      </Body>
+    </div>
   );
 }
 

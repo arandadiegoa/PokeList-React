@@ -28,3 +28,15 @@ export const Title = styled.h1`
   font-size: 25px;
   font-style: italic;
 `;
+
+export const Body = styled.body`
+  background:  #fefbd8; 
+`;
+
+export const Nav = styled.nav`
+  font-family: 'Spicy Rice', cursive;
+`;
+
+export const Li = styled.li`
+  background:  #fefbd8; 
+`
