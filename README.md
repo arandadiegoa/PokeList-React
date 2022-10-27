@@ -1,6 +1,6 @@
 # PokeList-React
 
-Proyecto web que devuelve Lista de Pokemones con sus descripciones, tambien se creo un paginado con un limite de Card de Pokemones.
+Proyecto web que devuelve Lista de Pokemones con sus descripciones, tambien se creó un paginado con un limite de Card de Pokemones.
 
 Contiene: 
 
