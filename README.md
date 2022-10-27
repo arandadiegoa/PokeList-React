@@ -6,10 +6,10 @@ Contiene:
 
 -Programación con React.
 
--Implementación con useReducer + Hook de estado + React Router
+-Implementación con useReducer + Hook de estado + React Router.
 
 -Llamada a servicios con Axios.
 
--Manejo de Estilos con Styled-components
+-Manejo de Estilos con Styled-components.
 
 
